@@ -5,7 +5,7 @@ require_once __DIR__ . "/public/display.classes.php";
 require_once __DIR__ . "/public/display.contr.php";
 require_once __DIR__ . "/config/session.php";
 
-
+$_GET['id'] = "transaction";
 
 // Fetch the active transaction from the database
 // $sql = "SELECT * FROM information WHERE status = 1 LIMIT 1"; // Assuming only one active transaction at a time
