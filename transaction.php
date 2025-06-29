@@ -3,7 +3,7 @@
 require_once __DIR__ . "/config/dbh.php";   
 require_once __DIR__ ."/public/display.classes.php";
 require_once __DIR__ ."/public/display.contr.php";
-
+require_once __DIR__. "/config/session.php";
 
 
 
@@ -41,6 +41,7 @@ $transactions = $transactions->detailsDisplay();
         </nav>
     </header>
     <div class="container">
+        <h2>tracking number: <?= $_SESSION['tracking_number']?></h2>
         <div class="row">
             <?php foreach($transactions as $transaction):?>
                 <div class="col">

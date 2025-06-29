@@ -8,5 +8,5 @@ $track = new TrackingContr($tracking_number);
 $track->trackingValidate();
 
 $_SESSION['tracking_number'] = $tracking_number;
-header("Location: ../index.php?success: user found");
+header("Location: ../transaction.php?success: user found");
 
