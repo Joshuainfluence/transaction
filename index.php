@@ -27,7 +27,7 @@
                 <h2 class="text-center">Enter tracking Number</h2>
                 <div class="card">
                     <div class="card-body">
-                        <form action="" method="get">
+                        <form action="inc/tracking.include.php" method="get">
                             <input type="number" name="tracking_number" class="form-control mt-2" placeholder="Tracking number" id="">
                             <input type="submit" value="Validate" class="btn btn-dark w-100 mt-2">
                         </form>

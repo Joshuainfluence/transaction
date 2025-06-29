@@ -1,6 +1,6 @@
 <?php 
 require_once __DIR__. "/../config/dbh.php";
-class Tracking_classes extends Dbh{
+class Tracking extends Dbh{
     private function set_message($type, $message){
         return $_SESSION[$type] = $message;
     }
@@ -16,7 +16,7 @@ class Tracking_classes extends Dbh{
         if ($stmt->rowCount() === 0) {
            $stmt = null;
            $this->set_message("error", "User not found");
-           header("Location: ../index.php");
+           header("Location: ../index.php?error: use not found");
         }
         $details = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $details;
