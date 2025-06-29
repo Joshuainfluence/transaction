@@ -76,6 +76,9 @@ require_once(__DIR__ . "../../config/session.php");
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="assets/sweetalert/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="assets/sweetalert/sweetalert/jquery-3.6.4.min.js"></script>
 </body>
 
 </html>
