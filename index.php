@@ -1,7 +1,7 @@
 <?php
 // index.php
 
-
+require_once __DIR__. "/config/session.php";
 
 ?>
 
@@ -21,6 +21,33 @@
 </head>
 
 <body>
+<style>
+        .script {
+            z-index: 9999;
+        }
+    </style>
+    <div class="script">
+        <script>
+            window.onload = function() {
+                <?php if (isset($_SESSION['success'])) : ?>
+                    Swal.fire("Success", "<?= $_SESSION['success'] ?>", "success");
+                <?php endif ?>
+
+                <?php if (isset($_SESSION['error'])) : ?>
+                    Swal.fire("Error", "<?= $_SESSION['error'] ?>", "error");
+                <?php endif ?>
+            };
+        </script>
+    </div>
+    <?php
+    if (isset($_SESSION['success'])) :
+        echo '<script>console.log("Success message: ' . $_SESSION['success'] . '");</script>';
+    endif;
+
+    if (isset($_SESSION['error'])) :
+        echo '<script>console.log("Error message: ' . $_SESSION['error'] . '");</script>';
+    endif;
+    ?>
     <div class="container">
         <div class="row mt-5">
             <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3 d-flex flex-column justify-contents-center">
@@ -37,7 +64,9 @@
         </div>
     </div>
 
-    
+    <script src="assets/sweetalert/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="assets/sweetalert/sweetalert/jquery-3.6.4.min.js"></script>
+
 
 </body>
 
