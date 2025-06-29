@@ -67,7 +67,7 @@ $transactions = $transactions->transactionShow()
                             <?#php else : ?>
                                 <!-- <button class="btn btn-secondary" disabled>Activated</button> -->
                                 <!-- <a href="../inc/deactivate.include.php?id=<?#= $transaction['id'] ?>" class="btn btn-danger">Deactivate</a> -->
-                                <a href="../inc/delete.include.php?id=<? $transaction['id'] ?>" class="btn btn-danger">Delete</a> 
+                                <a href="../inc/delete.include.php?id=<?= $transaction['id'] ?>" class="btn btn-danger">Delete</a> 
 
                             <?#php endif; ?>
                         </td>
