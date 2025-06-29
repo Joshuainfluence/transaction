@@ -71,3 +71,5 @@ require_once __DIR__. "/config/session.php";
 </body>
 
 </html>
+
+<?php unset($_SESSION['success'], $_SESSION['error'])?>
