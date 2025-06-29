@@ -1,9 +1,9 @@
 <?php
 // index.php
-require_once __DIR__ . "/config/dbh.php";   
-require_once __DIR__ ."/public/display.classes.php";
-require_once __DIR__ ."/public/display.contr.php";
-require_once __DIR__. "/config/session.php";
+require_once __DIR__ . "/config/dbh.php";
+require_once __DIR__ . "/public/display.classes.php";
+require_once __DIR__ . "/public/display.contr.php";
+require_once __DIR__ . "/config/session.php";
 
 
 
@@ -12,9 +12,10 @@ require_once __DIR__. "/config/session.php";
 // $stmt = $dbh->prepare($sql);
 // $stmt->execute();
 // $transaction = $stmt->fetch(PDO::FETCH_ASSOC);
-$status = 1;
+// $status = 1;
+$tracking_number = $_SESSION['tracking_number'];
 // $limit = 1;
-$transactions = new DisplayContr($status);
+$transactions = new DisplayContr($tracking_number);
 $transactions = $transactions->detailsDisplay();
 
 
@@ -41,67 +42,67 @@ $transactions = $transactions->detailsDisplay();
         </nav>
     </header>
     <div class="container">
-        <h2>tracking number: <?= $_SESSION['tracking_number']?></h2>
         <div class="row">
-            <?php foreach($transactions as $transaction):?>
+            <?php foreach ($transactions as $transaction): ?>
                 <div class="col">
-                <h2>
-                    <?= isset($transaction['bank_name']) ? $transaction['bank_name'] : 'No active transaction' ?>
-                    <br>Account Type: <?= isset($transaction['account_type']) ? $transaction['account_type'] : 'N/A' ?>
-                    <br>Account Number: <?= isset($transaction['account_number']) ? $transaction['account_number'] : 'N/A' ?>
+                    <h2>
+                        <?= isset($transaction['bank_name']) ? $transaction['bank_name'] : 'No active transaction' ?>
+                        <br>Account Type: <?= isset($transaction['account_type']) ? $transaction['account_type'] : 'N/A' ?>
+                        <br>Account Number: <?= isset($transaction['account_number']) ? $transaction['account_number'] : 'N/A' ?>
+                        <br>Tracking number: <?= $_SESSION['tracking_number'] ?></h2>
+                        <br>
+                        <span style="color: orange;">
+                            <?= isset($transaction['foreign_writeup']) ? $transaction['foreign_writeup'] : 'No writeup available' ?>
+                        </span>
+                    </h2>
                     <br>
-                    <span style="color: orange;">
-                        <?= isset($transaction['foreign_writeup']) ? $transaction['foreign_writeup'] : 'No writeup available' ?>
-                    </span>
-                </h2>
-                <br>
 
-                <div class="border">
-                    <div class="info">
-                        <div class="p">
-                            <div class="purple"></div>
-                            <div class="writeup">
-                                <?= isset($transaction['foreign_writeup']) ? $transaction['foreign_writeup'] : 'No foreign transaction details available.' ?>
+                    <div class="border">
+                        <div class="info">
+                            <div class="p">
+                                <div class="purple"></div>
+                                <div class="writeup">
+                                    <?= isset($transaction['foreign_writeup']) ? $transaction['foreign_writeup'] : 'No foreign transaction details available.' ?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="date">
-                            <?= isset($transaction['transaction_date']) ? $transaction['transaction_date'] : 'N/A' ?>
-                        </div>
-                    </div>
-
-                    <div class="transaction">
-                        <div class="trans">
-                            Transaction Progress
-                        </div>
-                        <div class="score">
-                            97%
-                        </div>
-                    </div>
-
-                    <div class="progressbar">
-                        <div class="bar"></div>
-                    </div>
-
-                    <div class="main">
-                        <div class="for">
-                            <div class="orange"></div>
-
-                            <div class="foreign">
-                                Foreign Transaction Fees
+                            <div class="date">
+                                <?= isset($transaction['transaction_date']) ? $transaction['transaction_date'] : 'N/A' ?>
                             </div>
                         </div>
 
-                        <div class="unresolved">
-                            Unresolved
+                        <div class="transaction">
+                            <div class="trans">
+                                Transaction Progress
+                            </div>
+                            <div class="score">
+                                97%
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="transup">
-                        Transaction Unresolved. Your transfer has been fully confirmed and is now in the final stage of processing for international transfer.
+                        <div class="progressbar">
+                            <div class="bar"></div>
+                        </div>
+
+                        <div class="main">
+                            <div class="for">
+                                <div class="orange"></div>
+
+                                <div class="foreign">
+                                    Foreign Transaction Fees
+                                </div>
+                            </div>
+
+                            <div class="unresolved">
+                                Unresolved
+                            </div>
+                        </div>
+
+                        <div class="transup">
+                            Transaction Unresolved. Your transfer has been fully confirmed and is now in the final stage of processing for international transfer.
+                        </div>
                     </div>
                 </div>
-            </div>
-                <?php endforeach?>
+            <?php endforeach ?>
         </div>
     </div>
 
