@@ -33,27 +33,25 @@ $transactions = $transactions->detailsDisplay();
 </head>
 
 <body>
+    <?php foreach ($transactions as $transaction): ?>
     <header>
         <nav>
             <div class="logo">
-                Bank
+                <?= ucwords($transaction['bank_name'])?>
             </div>
             <div class="mail"></div>
         </nav>
     </header>
     <div class="container">
         <div class="row">
-            <?php foreach ($transactions as $transaction): ?>
                 <div class="col">
                     <h2>
-                        <?= isset($transaction['bank_name']) ? $transaction['bank_name'] : 'No active transaction' ?>
-                        <br>Account Type: <?= isset($transaction['account_type']) ? $transaction['account_type'] : 'N/A' ?>
+                        <?= isset($transaction['bank_name']) ? ucwords($transaction['bank_name']) : 'No active transaction' ?>
+                        <br>Account Type: <?= isset($transaction['account_type']) ? ucfirst($transaction['account_type']) : 'N/A' ?>
                         <br>Account Number: <?= isset($transaction['account_number']) ? $transaction['account_number'] : 'N/A' ?>
-                        <br>Tracking number: <?= $_SESSION['tracking_number'] ?></h2>
+                        <br>Tracking number: <?= $_SESSION['tracking_number'] ?>
                         <br>
-                        <span style="color: orange;">
-                            <?= isset($transaction['foreign_writeup']) ? $transaction['foreign_writeup'] : 'No writeup available' ?>
-                        </span>
+                        <span style="color: orange;"><?= $transaction['bank_name']?></span> is sending you $<?= $transaction['amount']?>
                     </h2>
                     <br>
 
@@ -62,7 +60,7 @@ $transactions = $transactions->detailsDisplay();
                             <div class="p">
                                 <div class="purple"></div>
                                 <div class="writeup">
-                                    <?= isset($transaction['foreign_writeup']) ? $transaction['foreign_writeup'] : 'No foreign transaction details available.' ?>
+                                    <?= isset($transaction['foreign_writeup']) ? ucwords($transaction['bank_name']) : 'No foreign transaction details available.' ?>, N.A made a $<?= $transaction['amount']?> transfer
                                 </div>
                             </div>
                             <div class="date">
@@ -98,15 +96,17 @@ $transactions = $transactions->detailsDisplay();
                         </div>
 
                         <div class="transup">
-                            Transaction Unresolved. Your transfer has been fully confirmed and is now in the final stage of processing for international transfer.
+                            <!-- Transaction Unresolved. Your transfer has been fully confirmed and is now in the final stage of processing for international transfer. -->
+                            <?= isset($transaction['foreign_writeup']) ? ucfirst( $transaction['foreign_writeup']) : 'No writeup available' ?>
+
                         </div>
                     </div>
                 </div>
-            <?php endforeach ?>
+            </div>
         </div>
-    </div>
-
-    <script>
+        <?php endforeach ?>
+        
+        <script>
         const bar = document.querySelector('.bar');
         const score = document.querySelector('.score');
 
