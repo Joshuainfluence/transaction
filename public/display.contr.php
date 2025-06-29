@@ -2,17 +2,17 @@
 
 class DisplayContr extends Display
 {
-    private $status;
+    private $tracking_number;
     // private $limit;
-    public function __construct($status)
+    public function __construct($tracking_number)
     {
-        $this->status = $status;
+        $this->tracking_number = $tracking_number;
         // $this->limit = $limit;
     }
 
     public function detailsDisplay()
     {
-        $data = $this->displayDetails($this->status);
+        $data = $this->displayDetails($this->tracking_number);
         return $data;
     }
 }
