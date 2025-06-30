@@ -13,12 +13,14 @@
         <div class="row mt-5">
             <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
                 <div class="card">
-                    <div class="card-body">
-                        <h2 class="text-center">Admin Login</h2>
-                        <input type="text" class="form-control mt-2" placeholder="Enter Username">
-                        <input type="text" class="form-control mt-2" placeholder="Enter Password">
-                        <input type="submit" value="Login" class="btn btn-primary w-100 mt-2">
-                    </div>
+                    <form action="../inc/admin.include.php" method="post">
+                        <div class="card-body">
+                            <h2 class="text-center">Admin Login</h2>
+                            <input type="text" class="form-control mt-2" placeholder="Enter Username" name="username">
+                            <input type="text" class="form-control mt-2" placeholder="Enter Password" name="password">
+                            <input type="submit" value="Login" class="btn btn-primary w-100 mt-2">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
