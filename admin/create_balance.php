@@ -49,8 +49,8 @@ require_once(__DIR__ . "/../config/session.php");
 
                 <div class="d-flex justify-content-between mb-2">
                     <h2 class="text-center">Create balance</h2>
-                    <a href="view_transactions.php" class="btn btn-outline-dark">View Transaction</a>
-                    <!-- <a href="create_balance.php" class="btn btn-outline-dark">create balance</a> -->
+                    <a href="view" class="btn btn-outline-dark">View Transaction</a>
+                    <a href="create" class="btn btn-outline-dark">create transactions</a>
 
                 </div>
 
@@ -66,8 +66,6 @@ require_once(__DIR__ . "/../config/session.php");
                             <textarea name="foreign_writeup" id="" placeholder="Foreign transaction details" class="form-control mt-2"></textarea>
                             <input type="submit" value="Update" class="btn btn-dark w-100 mt-2">
                         </form>
-
-
                     </div>
                 </div>
             </div>

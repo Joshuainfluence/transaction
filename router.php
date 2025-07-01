@@ -49,7 +49,9 @@ switch ($url[0]) {
     case "admin/create":
         require_once __DIR__."/admin/form.php";
         break;
-
+    case "admin/create_balance":
+        require_once __DIR__."/admin/create_balance.php";
+        break;
         
     default:
     require_once __DIR__."/404.php";
