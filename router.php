@@ -27,33 +27,34 @@
 
 
 $url = isset($_GET['id']) ? $_GET["id"] : "";
-$url = explode("/", rtrim($url,"/"));
+$url = explode("/", rtrim($url, "/"));
 
-switch ($url[0]) {  
+switch ($url[0]) {
     case "transaction":
-        require_once __DIR__. "/transaction.php";
+        require_once __DIR__ . "/transaction.php";
         break;
 
     case "/":
-        require_once __DIR__."/index.php";
+        require_once __DIR__ . "/index.php";
         break;
-    
+
     case "admin":
-        require_once __DIR__."/admin/index.php";
+        require_once __DIR__ . "/admin/index.php";
         break;
 
-    case "admin/view":
-        require_once __DIR__."/admin/view_transactions.php";
+    case "admin-view":
+        require_once __DIR__ . "/admin/view_transactions.php";
         break;
 
-    case "admin/create":
-        require_once __DIR__."/admin/form.php";
+    case "admin-create":
+        require_once __DIR__ . "/admin/form.php";
         break;
-    case "admin/create_balance":
-        require_once __DIR__."/admin/create_balance.php";
+
+    case "admin-create_balance":
+        require_once __DIR__ . "/admin/create_balance.php";
         break;
-        
+
     default:
-    require_once __DIR__."/404.php";
-    break;
+        require_once __DIR__ . "/404.php";
+        break;
 }
