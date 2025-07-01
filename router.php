@@ -50,6 +50,7 @@ switch ($url[0]) {
         require_once __DIR__."/admin/form.php";
         break;
 
+        
     default:
     require_once __DIR__."/404.php";
     break;
