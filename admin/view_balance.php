@@ -12,10 +12,10 @@ require_once __DIR__ . "/../public/show.contr.php";
 // $stmt = $dbh->prepare($sql);
 // $stmt->execute();
 // $transactions = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$status = 2;
+$id = 0;
 
-$transactions = new ShowContr($status);
-$transactions = $transactions->transactionShow()
+$transactions = new ShowContr($id);
+$transactions = $transactions->balanceShow()
 // ?>
 
 <!DOCTYPE html>
@@ -42,10 +42,10 @@ $transactions = $transactions->transactionShow()
                     <th>#</th>
                     <th>Bank Name</th>
                     <th>Account Number</th>
-                    <th>Amount</th>
-                    <th>Transaction Date</th>
-                    <th>Tracking Number</th>
-                    <th>Status</th>
+                    <th>Balance</th>
+                   
+                    <th>Passcode</th>
+                    <th>Details</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -55,11 +55,11 @@ $transactions = $transactions->transactionShow()
                         <td><?= $transaction['id'] ?></td>
                         <td><?= $transaction['bank_name'] ?></td>
                         <td><?= $transaction['account_number'] ?></td>
-                        <td><?= $transaction['amount'] ?></td>
-                        <td><?= $transaction['transaction_date'] ?></td>
-                        <td><?= $transaction['tracking_number'] ?></td>
+                        <td><?= $transaction['balance_amount'] ?></td>
+                       
+                        <td><?= $transaction['passcode'] ?></td>
 
-                        <td><?= $transaction['status'] == 1 ? 'Active' : 'Inactive' ?></td>
+                        <td><?= $transaction['details'] ?></td>
                         <td>
                             <?#php if ($transaction['status'] == 0) : ?>
                                 <!-- <a href="../inc/activate.include.php?id=<?#= $transaction['id'] ?>" class="btn btn-success">Activate</a> -->
