@@ -54,6 +54,9 @@ switch ($url[0]) {
         require_once __DIR__ . "/admin/create_balance.php";
         break;
 
+    case "admin-view_balance":
+        require_once __DIR__ . "/admin/view_balance.php";
+        break;
     default:
         require_once __DIR__ . "/404.php";
         break;

@@ -16,7 +16,8 @@ $id = 0;
 
 $transactions = new ShowContr($id);
 $transactions = $transactions->balanceShow()
-// ?>
+// 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,9 +33,12 @@ $transactions = $transactions->balanceShow()
     <div class="container mt-5">
         <!-- <h2>All Transactions</h2> -->
         <div class="d-flex justify-content-between mb-2">
-                <h2 class="text-center">View Transactions</h2>
-            <a href="form.php" class="btn btn-outline-dark">Create Transaction</a>
-                </div>
+            <h2 class="text-center">View Transactions</h2>
+            <a href="admin-view" class="btn btn-outline-dark">View Transaction</a>
+            <a href="admin-create" class="btn btn-outline-dark">create transactions</a>
+            <a href="admin-create_balance" class="btn btn-outline-dark">Create Balance</a>
+
+        </div>
 
         <table class="table table-bordered">
             <thead>
@@ -43,7 +47,7 @@ $transactions = $transactions->balanceShow()
                     <th>Bank Name</th>
                     <th>Account Number</th>
                     <th>Balance</th>
-                   
+
                     <th>Passcode</th>
                     <th>Details</th>
                     <th>Action</th>
@@ -56,19 +60,24 @@ $transactions = $transactions->balanceShow()
                         <td><?= $transaction['bank_name'] ?></td>
                         <td><?= $transaction['account_number'] ?></td>
                         <td><?= $transaction['balance_amount'] ?></td>
-                       
+
                         <td><?= $transaction['passcode'] ?></td>
 
                         <td><?= $transaction['details'] ?></td>
                         <td>
-                            <?#php if ($transaction['status'] == 0) : ?>
-                                <!-- <a href="../inc/activate.include.php?id=<?#= $transaction['id'] ?>" class="btn btn-success">Activate</a> -->
-                            <?#php else : ?>
-                                <!-- <button class="btn btn-secondary" disabled>Activated</button> -->
-                                <!-- <a href="../inc/deactivate.include.php?id=<?#= $transaction['id'] ?>" class="btn btn-danger">Deactivate</a> -->
-                                <a href="../inc/delete.include.php?id=<?= $transaction['id'] ?>" class="btn btn-danger">Delete</a> 
+                            <? #php if ($transaction['status'] == 0) : 
+                            ?>
+                            <!-- <a href="../inc/activate.include.php?id=<? #= $transaction['id'] 
+                                                                            ?>" class="btn btn-success">Activate</a> -->
+                            <? #php else : 
+                            ?>
+                            <!-- <button class="btn btn-secondary" disabled>Activated</button> -->
+                            <!-- <a href="../inc/deactivate.include.php?id=<? #= $transaction['id'] 
+                                                                            ?>" class="btn btn-danger">Deactivate</a> -->
+                            <a href="../inc/delete.include.php?id=<?= $transaction['id'] ?>" class="btn btn-danger">Delete</a>
 
-                            <?#php endif; ?>
+                            <? #php endif; 
+                            ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

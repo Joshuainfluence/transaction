@@ -49,8 +49,10 @@ require_once(__DIR__ . "/../config/session.php");
 
                 <div class="d-flex justify-content-between mb-2">
                     <h2 class="text-center">Create balance</h2>
-                    <a href="view" class="btn btn-outline-dark">View Transaction</a>
-                    <a href="create" class="btn btn-outline-dark">create transactions</a>
+                    <a href="admin-view" class="btn btn-outline-dark">View Transaction</a>
+                    <a href="admin-create" class="btn btn-outline-dark">create transactions</a>
+                    <a href="admin-view_balance" class="btn btn-outline-dark">View Balance</a>
+
 
                 </div>
 
