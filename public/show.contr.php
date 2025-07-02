@@ -16,7 +16,7 @@ class ShowContr extends Show
 
     public function balanceShow()
     {
-        $data = $this->showTransactions($this->status);
+        $data = $this->showBalance($this->status);
         return $data;
     }
 }
