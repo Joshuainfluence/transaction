@@ -12,4 +12,16 @@ class Show extends Dbh{
         $details = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $details;
     }
+
+     protected function showBalance($id)
+    {
+        $sql = "SELECT * FROM balance WHERE id != ?";
+        $stmt = $this->connection()->prepare($sql);
+        if (!$stmt->execute([$id])) {
+            $stmt = null;
+            exit();
+        }
+        $details = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $details;
+    }
 }
