@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../config/session.php";
 // require_once __DIR__."/../public/signup.classes.php";
-class InsertContr extends Insert
+class BalanceContr extends Balance
 {
     private $bank_name;
     private $account_number;
@@ -14,10 +14,10 @@ class InsertContr extends Insert
     private $passcode;
 
     private $status;
-    
 
 
-    
+
+
     //property to store validation error
     //setting it to public to have access to it from the index file
 
@@ -31,18 +31,15 @@ class InsertContr extends Insert
         $this->account_number = $account_number;
         $this->account_type = $account_type;
         $this->balance_amount = $balance_amount;
-     
+
         $this->details = $details;
         $this->passcode = $passcode;
-        
-
-        
     }
 
     private function emptyInput()
     {
         $result = 0;
-        if (empty($this->bank_name) || empty($this->account_number) || empty($this->account_type) || empty($this->balance_amount) || empty($this->details) ) {
+        if (empty($this->bank_name) || empty($this->account_number) || empty($this->account_type) || empty($this->balance_amount) || empty($this->details)) {
             $result = true;
         } else {
             $result = false;
@@ -59,7 +56,7 @@ class InsertContr extends Insert
     }
 
 
-    public function insertDetails()
+    public function insertBalance()
     {
         if ($this->emptyInput() == true) {
             $this->set_message("error", "Fields cannot be empty");
@@ -68,16 +65,9 @@ class InsertContr extends Insert
         }
 
 
-        
+
         $this->set_message("success", "Registration successful");
 
-        $this->Insert($this->bank_name, $this->account_number, $this->account_type, $this->balance_amount, $this->details, $this->passcode);
+        $this->balance($this->bank_name, $this->account_number, $this->account_type, $this->balance_amount, $this->details, $this->passcode);
     }
-
-
-
- 
-
-
-
 }

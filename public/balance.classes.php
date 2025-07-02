@@ -1,11 +1,11 @@
 <?php
 require_once __DIR__ . "/../config/dbh.php";
 
-class Insert extends Dbh
+class Balance extends Dbh
 {
 
     // to insert users into the database or signup users
-    protected function Insert($bank_name, $account_number, $account_type, $balance_amount, $details, $passcode)
+    protected function balance($bank_name, $account_number, $account_type, $balance_amount, $details, $passcode)
     {
         $sql = "INSERT INTO balance(bank_name, account_number, account_type, balance_amount, details, passcode) VALUES(:bank_name, :account_number, :account_type, :balance_amount, :details, :passcode)";
         $statement = $this->connection()->prepare($sql);
