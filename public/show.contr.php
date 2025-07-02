@@ -13,4 +13,10 @@ class ShowContr extends Show
         $data = $this->showTransactions($this->status);
         return $data;
     }
+
+    public function balanceShow()
+    {
+        $data = $this->showTransactions($this->status);
+        return $data;
+    }
 }
