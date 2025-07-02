@@ -56,14 +56,14 @@ require_once(__DIR__ . "/../config/session.php");
 
                 <div class="card">
                     <div class="card-body">
-                        <form action="../inc/balance.include.php" method="post">
+                        <form action="inc/balance.include.php" method="post">
                             <!-- <input type="hidden" name="id" value="1"> -->
                             <input type="text" name="bank_name" class="form-control mt-2" id="" placeholder="Enter bank name">
                             <input type="text" name="account_number" class="form-control mt-2" id="" placeholder="Enter account number">
                             <input type="text" name="account_type" class="form-control mt-2" id="" placeholder="Enter account type">
-                            <input type="text" name="balance" class="form-control mt-2" id="" placeholder="Enter balance amount">
+                            <input type="text" name="balance_amount" class="form-control mt-2" id="" placeholder="Enter balance amount">
                             
-                            <textarea name="foreign_writeup" id="" placeholder="Foreign transaction details" class="form-control mt-2"></textarea>
+                            <textarea name="details" id="" placeholder="Foreign transaction details" class="form-control mt-2"></textarea>
                             <input type="submit" value="Update" class="btn btn-dark w-100 mt-2">
                         </form>
                     </div>

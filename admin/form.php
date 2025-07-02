@@ -54,7 +54,7 @@ require_once(__DIR__ . "/../config/session.php");
 
                 <div class="card">
                     <div class="card-body">
-                        <form action="../inc/insert.include.php" method="post">
+                        <form action="inc/insert.include.php" method="post">
                             <!-- <input type="hidden" name="id" value="1"> -->
                             <input type="text" name="bank_name" class="form-control mt-2" id="" placeholder="Enter bank name">
                             <input type="text" name="account_number" class="form-control mt-2" id="" placeholder="Enter account number">
