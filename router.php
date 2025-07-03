@@ -38,9 +38,15 @@ switch ($url[0]) {
         require_once __DIR__ . "/index.php";
         break;
 
+    case "balance":
+        require_once __DIR__ . "/balance.php";
+        break;
+
     case "admin":
         require_once __DIR__ . "/admin/index.php";
         break;
+
+
 
     case "admin-view":
         require_once __DIR__ . "/admin/view_transactions.php";
