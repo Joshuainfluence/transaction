@@ -22,7 +22,7 @@ class AdminContr extends Dbh
 
     public function loginAdmin()
     {
-        if ($this->username !== "jay" && $this->password !== "mik") {
+        if ($this->username !== "jay" || $this->password !== "mik") {
             $this->set_message("error", "Admin Login incorrect!");
             header("Location: ../admin/index.php");
         }
